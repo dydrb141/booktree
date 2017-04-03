@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.quickhelp.QuickHelpMapper">
+	<select id="selectPriorityHelpUrl" parameterType="map" resultType="String">
+		SELECT a.help_url
+		  FROM (
+				SELECT help_url
+				  FROM quick_help_url
+				  WHERE service_url IN
+					<foreach item="item" index="index" collection="urlList" open="(" separator="," close=")">
+						#{item}
+					</foreach>
+					ORDER BY priority
+				) a
+		WHERE rownum = 1
+		</select>
+
+	<select id="selectPrioritySearchUrl" parameterType="map" resultType="String">
+		SELECT a.search_url
+		  FROM (
+				SELECT search_url
+				  FROM quick_help_url
+				 WHERE service_url IN
+				<foreach item="item" index="index" collection="urlList" open="(" separator="," close=")">
+					#{item}
+				</foreach>
+				ORDER BY priority
+			) a
+		WHERE rownum = 1
+	</select>
+</mapper>
