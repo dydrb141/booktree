@@ -1,6 +1,6 @@
 package com.dragon.booktree.common.config;
 
-import com.dragon.booktree.api.search.TrustAnyTrustManager;
+import com.dragon.booktree.common.manager.TrustAnyTrustManager;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;

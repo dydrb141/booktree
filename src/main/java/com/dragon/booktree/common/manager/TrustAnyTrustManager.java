@@ -1,4 +1,4 @@
-package com.dragon.booktree.api.search;
+package com.dragon.booktree.common.manager;
 
 import javax.net.ssl.X509TrustManager;
 import java.security.cert.CertificateException;
